@@ -32,10 +32,12 @@ Streamlit will display the local address, normally `http://localhost:8501`.
 
 ## Excel data structure
 
-The dashboard reads:
+The public dashboard reads sanitized, anonymized copies:
 
-- `proposal_panel_data_2025.xlsx` → `Nama Pelajar & Panel 2025.`
-- `proposal_panel_data.xlsx` → `Nama Pelajar & Panel 2026`
+- `public_data_2025.xlsx` → `Nama Pelajar & Panel 2025.`
+- `public_data_2026.xlsx` → `Nama Pelajar & Panel 2026`
+
+Each public workbook contains only its relevant proposal worksheet. Personal document metadata, comments, hyperlinks, hidden draft/history worksheets, and unrelated year sheets are excluded. Original source workbooks remain local and ignored by Git.
 
 The 2025 header spans Excel rows 3–4 and the 2026 header spans rows 2–3. Student records use repeated blocks with merged cells and blank separator rows. The loader anchors each session on its consecutive `PANEL` rows, reads the surrounding date, student and supervisor metadata, and converts the block into appointment-level records with a `Proposal Year` field.
 

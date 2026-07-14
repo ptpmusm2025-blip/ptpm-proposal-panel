@@ -15,11 +15,11 @@ import streamlit as st
 APP_TITLE = "PTPM Proposal Panel Appointment Dashboard"
 DATA_SOURCES = {
     2025: {
-        "path": Path(__file__).with_name("proposal_panel_data_2025.xlsx"),
+        "path": Path(__file__).with_name("public_data_2025.xlsx"),
         "worksheet": "Nama Pelajar & Panel 2025.",
     },
     2026: {
-        "path": Path(__file__).with_name("proposal_panel_data.xlsx"),
+        "path": Path(__file__).with_name("public_data_2026.xlsx"),
         "worksheet": "Nama Pelajar & Panel 2026",
     },
 }
