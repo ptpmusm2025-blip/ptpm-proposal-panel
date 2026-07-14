@@ -11,6 +11,8 @@ A Streamlit dashboard for monitoring the frequency and distribution of lecturers
 - Searchable student lookup and detailed records
 - Consistent global filters and CSV download
 - Proposal-year filtering for 2025, 2026, or a combined view
+- Rule-based panel recommendations with transparent 0–100 workload-distribution scores
+- Proposed-panel review with neutral workload-balance indicators and conflict checks
 - Validation for malformed source data, unusual panel counts, and supervisor-panel conflicts
 
 ## Run locally
@@ -48,6 +50,12 @@ An internal lecturer code is treated as appointed when its cell contains `1`; a 
 The data source is isolated in `load_source_data()` in `app.py`. A future authenticated Google Sheets adapter can return the equivalent worksheet grid and refresh timestamp. Dashboard views do not need to be redesigned.
 
 For a private production source, store credentials in Streamlit secrets or an approved institutional secret manager. Never commit credentials to the repository.
+
+## Panel recommendation method
+
+The `Panel Recommendation` tab ranks eligible internal PTPM lecturers using inspectable historical rules rather than machine learning. The initial score weights are 45% lower overall appointment frequency, 30% lower use by the selected supervisor, 15% lower workload in the previous 90 days, and 10% broader distribution across supervisors. If dates are unavailable, the recent-workload weight is redistributed proportionally.
+
+Recommendations support workload-distribution decisions only. Expertise, suitability, availability, conflicts of interest, academic requirements, independence, and management judgement must be assessed before an appointment is confirmed. Nothing is written back to the Excel workbooks.
 
 ## Data expectations
 
